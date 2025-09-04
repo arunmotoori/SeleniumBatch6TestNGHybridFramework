@@ -1,73 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="5" passed="5" failed="0" skipped="0">
+<testng-results ignored="0" total="2" passed="2" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2025-09-03T21:05:51 IST" name="Default suite" finished-at="2025-09-03T21:06:12 IST" duration-ms="20461">
+  <suite started-at="2025-09-04T21:06:24 IST" name="Default suite" finished-at="2025-09-04T21:06:34 IST" duration-ms="9606">
     <groups>
     </groups>
-    <test started-at="2025-09-03T21:05:51 IST" name="Default test" finished-at="2025-09-03T21:06:12 IST" duration-ms="20461">
-      <class name="tests.Login">
-        <test-method is-config="true" signature="setup()[pri:0, instance:tests.Login@77888435]" started-at="2025-09-03T21:05:51 IST" name="setup" finished-at="2025-09-03T21:05:54 IST" duration-ms="2803" status="PASS">
+    <test started-at="2025-09-04T21:06:24 IST" name="Default test" finished-at="2025-09-04T21:06:34 IST" duration-ms="9606">
+      <class name="tests.Logout">
+        <test-method is-config="true" signature="setup()[pri:0, instance:tests.Logout@55141def]" started-at="2025-09-04T21:06:24 IST" name="setup" finished-at="2025-09-04T21:06:26 IST" duration-ms="2215" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method signature="verifyLoginWithValidCredentias()[pri:1, instance:tests.Login@77888435]" started-at="2025-09-03T21:05:54 IST" name="verifyLoginWithValidCredentias" finished-at="2025-09-03T21:05:55 IST" duration-ms="1162" status="PASS">
+        <test-method signature="logoutFromMyAccountDropMenu()[pri:1, instance:tests.Logout@55141def]" started-at="2025-09-04T21:06:26 IST" name="logoutFromMyAccountDropMenu" finished-at="2025-09-04T21:06:29 IST" duration-ms="2984" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- verifyLoginWithValidCredentias -->
-        <test-method is-config="true" signature="teardown()[pri:0, instance:tests.Login@77888435]" started-at="2025-09-03T21:05:55 IST" name="teardown" finished-at="2025-09-03T21:05:56 IST" duration-ms="289" status="PASS">
+        </test-method> <!-- logoutFromMyAccountDropMenu -->
+        <test-method is-config="true" signature="teardown()[pri:0, instance:tests.Logout@55141def]" started-at="2025-09-04T21:06:29 IST" name="teardown" finished-at="2025-09-04T21:06:30 IST" duration-ms="344" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- teardown -->
-        <test-method is-config="true" signature="setup()[pri:0, instance:tests.Login@77888435]" started-at="2025-09-03T21:05:56 IST" name="setup" finished-at="2025-09-03T21:05:58 IST" duration-ms="2097" status="PASS">
+        <test-method is-config="true" signature="setup()[pri:0, instance:tests.Logout@55141def]" started-at="2025-09-04T21:06:30 IST" name="setup" finished-at="2025-09-04T21:06:31 IST" duration-ms="1498" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method signature="verifyLoginWithInvalidCredentials()[pri:2, instance:tests.Login@77888435]" started-at="2025-09-03T21:05:58 IST" name="verifyLoginWithInvalidCredentials" finished-at="2025-09-03T21:05:59 IST" duration-ms="1208" status="PASS">
+        <test-method signature="logoutFromRightColumnOptions()[pri:2, instance:tests.Logout@55141def]" started-at="2025-09-04T21:06:31 IST" name="logoutFromRightColumnOptions" finished-at="2025-09-04T21:06:34 IST" duration-ms="2231" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- verifyLoginWithInvalidCredentials -->
-        <test-method is-config="true" signature="teardown()[pri:0, instance:tests.Login@77888435]" started-at="2025-09-03T21:05:59 IST" name="teardown" finished-at="2025-09-03T21:05:59 IST" duration-ms="304" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- teardown -->
-        <test-method is-config="true" signature="setup()[pri:0, instance:tests.Login@77888435]" started-at="2025-09-03T21:05:59 IST" name="setup" finished-at="2025-09-03T21:06:03 IST" duration-ms="3889" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setup -->
-        <test-method signature="verifyLoginWithInvalidEmailAndValidPassword()[pri:3, instance:tests.Login@77888435]" started-at="2025-09-03T21:06:03 IST" name="verifyLoginWithInvalidEmailAndValidPassword" finished-at="2025-09-03T21:06:05 IST" duration-ms="1594" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- verifyLoginWithInvalidEmailAndValidPassword -->
-        <test-method is-config="true" signature="teardown()[pri:0, instance:tests.Login@77888435]" started-at="2025-09-03T21:06:05 IST" name="teardown" finished-at="2025-09-03T21:06:05 IST" duration-ms="287" status="PASS">
+        </test-method> <!-- logoutFromRightColumnOptions -->
+        <test-method is-config="true" signature="teardown()[pri:0, instance:tests.Logout@55141def]" started-at="2025-09-04T21:06:34 IST" name="teardown" finished-at="2025-09-04T21:06:34 IST" duration-ms="273" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- teardown -->
-        <test-method is-config="true" signature="setup()[pri:0, instance:tests.Login@77888435]" started-at="2025-09-03T21:06:05 IST" name="setup" finished-at="2025-09-03T21:06:07 IST" duration-ms="2277" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setup -->
-        <test-method signature="verifyLoginWithValidEmailAndInvalidPassword()[pri:4, instance:tests.Login@77888435]" started-at="2025-09-03T21:06:07 IST" name="verifyLoginWithValidEmailAndInvalidPassword" finished-at="2025-09-03T21:06:08 IST" duration-ms="1048" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- verifyLoginWithValidEmailAndInvalidPassword -->
-        <test-method is-config="true" signature="teardown()[pri:0, instance:tests.Login@77888435]" started-at="2025-09-03T21:06:08 IST" name="teardown" finished-at="2025-09-03T21:06:09 IST" duration-ms="266" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- teardown -->
-        <test-method is-config="true" signature="setup()[pri:0, instance:tests.Login@77888435]" started-at="2025-09-03T21:06:09 IST" name="setup" finished-at="2025-09-03T21:06:11 IST" duration-ms="2028" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setup -->
-        <test-method signature="verifyLoginWithoutEnteringAnyCredentials()[pri:5, instance:tests.Login@77888435]" started-at="2025-09-03T21:06:11 IST" name="verifyLoginWithoutEnteringAnyCredentials" finished-at="2025-09-03T21:06:12 IST" duration-ms="870" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- verifyLoginWithoutEnteringAnyCredentials -->
-        <test-method is-config="true" signature="teardown()[pri:0, instance:tests.Login@77888435]" started-at="2025-09-03T21:06:12 IST" name="teardown" finished-at="2025-09-03T21:06:12 IST" duration-ms="261" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- teardown -->
-      </class> <!-- tests.Login -->
+      </class> <!-- tests.Logout -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

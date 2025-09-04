@@ -1,6 +1,8 @@
 package tests;
 
 import java.time.Duration;
+import java.util.Properties;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -10,9 +12,12 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
+import utils.CommonUtils;
+
 public class Register {
 	
 	WebDriver driver;
+	Properties prop;
 	
 	@AfterMethod
 	public void teardown() {
@@ -24,10 +29,11 @@ public class Register {
 	@BeforeMethod
 	public void setup() {
 		
+		prop = CommonUtils.loadPropertiesFile();
 		driver = new ChromeDriver();
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
-		driver.get("https://tutorialsninja.com/demo/");
+		driver.get(prop.getProperty("url"));
 		
 		driver.findElement(By.xpath("//span[text()='My Account']")).click();
 		driver.findElement(By.linkText("Register")).click();
