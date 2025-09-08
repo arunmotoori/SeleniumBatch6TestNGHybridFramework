@@ -37,8 +37,8 @@ public class Logout {
 	public void logoutFromMyAccountDropMenu() {
 		driver.findElement(By.xpath("//span[text()='My Account']")).click();
 		driver.findElement(By.linkText("Login")).click();
-		driver.findElement(By.id("input-email")).sendKeys("amotooricap6@gmail.com");
-		driver.findElement(By.id("input-password")).sendKeys("12345");
+		driver.findElement(By.id("input-email")).sendKeys(prop.getProperty("validEmailOne"));
+		driver.findElement(By.id("input-password")).sendKeys(prop.getProperty("validPassword"));
 		driver.findElement(By.xpath("//input[@value='Login']")).click();
 		driver.findElement(By.xpath("//span[text()='My Account']")).click();
 		driver.findElement(By.linkText("Logout")).click();
@@ -51,8 +51,8 @@ public class Logout {
 	public void logoutFromRightColumnOptions() {
 		driver.findElement(By.xpath("//span[text()='My Account']")).click();
 		driver.findElement(By.linkText("Login")).click();
-		driver.findElement(By.id("input-email")).sendKeys("amotooricap6@gmail.com");
-		driver.findElement(By.id("input-password")).sendKeys("12345");
+		driver.findElement(By.id("input-email")).sendKeys(prop.getProperty("validEmailOne"));
+		driver.findElement(By.id("input-password")).sendKeys(prop.getProperty("validPassword"));
 		driver.findElement(By.xpath("//input[@value='Login']")).click();
 		driver.findElement(By.xpath("//*[@id='column-right']//a[text()='Logout']")).click();
 		Assert.assertEquals(driver.getTitle(),"Account Logout");

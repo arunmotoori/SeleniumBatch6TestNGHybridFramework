@@ -44,8 +44,8 @@ public class Login {
 		
 		Assert.assertEquals(driver.getTitle(),"Account Login");
 		
-		driver.findElement(By.id("input-email")).sendKeys("amotooricap6@gmail.com");
-		driver.findElement(By.id("input-password")).sendKeys("12345");
+		driver.findElement(By.id("input-email")).sendKeys(prop.getProperty("validEmailOne"));
+		driver.findElement(By.id("input-password")).sendKeys(prop.getProperty("validPassword"));
 		driver.findElement(By.xpath("//input[@value='Login']")).click();
 		
 		Assert.assertTrue(driver.findElement(By.xpath("//*[@id='column-right']//a[text()='Logout']")).isDisplayed());
@@ -57,7 +57,7 @@ public class Login {
 	public void verifyLoginWithInvalidCredentials()  {
 		
 		driver.findElement(By.id("input-email")).sendKeys(generateBrandNewEmail());
-		driver.findElement(By.id("input-password")).sendKeys("1234567890");
+		driver.findElement(By.id("input-password")).sendKeys(prop.getProperty("invalidPassword"));
 		driver.findElement(By.xpath("//input[@value='Login']")).click();
 		
 		Assert.assertEquals(driver.findElement(By.xpath("//div[@class='alert alert-danger alert-dismissible']")).getText(),"Warning: No match for E-Mail Address and/or Password.");
@@ -68,7 +68,7 @@ public class Login {
 	public void verifyLoginWithInvalidEmailAndValidPassword() {
 		
 		driver.findElement(By.id("input-email")).sendKeys(generateBrandNewEmail());
-		driver.findElement(By.id("input-password")).sendKeys("12345");
+		driver.findElement(By.id("input-password")).sendKeys(prop.getProperty("validPassword"));
 		driver.findElement(By.xpath("//input[@value='Login']")).click();
 		
 		Assert.assertEquals(driver.findElement(By.xpath("//div[@class='alert alert-danger alert-dismissible']")).getText(),"Warning: No match for E-Mail Address and/or Password.");
@@ -78,8 +78,8 @@ public class Login {
 	@Test(priority=4)
 	public void verifyLoginWithValidEmailAndInvalidPassword() {
 		
-		driver.findElement(By.id("input-email")).sendKeys("amotooricap7@gmail.com");
-		driver.findElement(By.id("input-password")).sendKeys("1234567890");
+		driver.findElement(By.id("input-email")).sendKeys(prop.getProperty("validEmailTwo"));
+		driver.findElement(By.id("input-password")).sendKeys(prop.getProperty("invalidPassword"));
 		driver.findElement(By.xpath("//input[@value='Login']")).click();
 		
 		Assert.assertEquals(driver.findElement(By.xpath("//div[@class='alert alert-danger alert-dismissible']")).getText(),"Warning: No match for E-Mail Address and/or Password.");

@@ -34,14 +34,14 @@ public class Search {
 	
 	@Test(priority=1)
 	public void verifySearchingWithExistingProductName() {
-		driver.findElement(By.name("search")).sendKeys("iMac");
+		driver.findElement(By.name("search")).sendKeys(prop.getProperty("existingProductOne"));
 		driver.findElement(By.xpath("//button[@class='btn btn-default btn-lg']")).click();
 		Assert.assertTrue(driver.findElement(By.linkText("iMac")).isDisplayed());
 	}
 	
 	@Test(priority=2)
 	public void verifySearchingWithNonExistingProductName() {
-		driver.findElement(By.name("search")).sendKeys("Fitbit");
+		driver.findElement(By.name("search")).sendKeys(prop.getProperty("nonExistingProduct"));
 		driver.findElement(By.xpath("//button[@class='btn btn-default btn-lg']")).click();
 		Assert.assertEquals(driver.findElement(By.xpath("//div[@id='content']/p[2]")).getText(),"There is no product that matches the search criteria.");
 	}

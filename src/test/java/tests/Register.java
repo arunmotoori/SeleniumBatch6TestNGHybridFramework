@@ -12,6 +12,7 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
+import pages.HomePage;
 import utils.CommonUtils;
 
 public class Register {
@@ -35,20 +36,21 @@ public class Register {
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
 		driver.get(prop.getProperty("url"));
 		
-		driver.findElement(By.xpath("//span[text()='My Account']")).click();
-		driver.findElement(By.linkText("Register")).click();
+		HomePage homePage = new HomePage(driver);
+		homePage.clickOnMyAccountDropMenu();
+		homePage.selectRegisterOption();
 		
 	}
 	
 	@Test(priority=1)
 	public void verifyRegisterAccountUsingMandatoryFields() {
 		
-		driver.findElement(By.id("input-firstname")).sendKeys("Arun");
-		driver.findElement(By.id("input-lastname")).sendKeys("Motoori");
+		driver.findElement(By.id("input-firstname")).sendKeys(prop.getProperty("firstName"));
+		driver.findElement(By.id("input-lastname")).sendKeys(prop.getProperty("lastName"));
 		driver.findElement(By.id("input-email")).sendKeys(generateBrandNewEmail());
-		driver.findElement(By.id("input-telephone")).sendKeys("1234567890");
-		driver.findElement(By.id("input-password")).sendKeys("12345");
-		driver.findElement(By.id("input-confirm")).sendKeys("12345");
+		driver.findElement(By.id("input-telephone")).sendKeys(prop.getProperty("telephoneNumber"));
+		driver.findElement(By.id("input-password")).sendKeys(prop.getProperty("validPassword"));
+		driver.findElement(By.id("input-confirm")).sendKeys(prop.getProperty("validPassword"));
 		driver.findElement(By.name("agree")).click();
 		driver.findElement(By.xpath("//input[@value='Continue']")).click();
 		
@@ -67,12 +69,12 @@ public class Register {
 	@Test(priority=2)
 	public void verifyRegisteringAnAccountByProvidingAllTheFields() {
 		
-		driver.findElement(By.id("input-firstname")).sendKeys("Arun");
-		driver.findElement(By.id("input-lastname")).sendKeys("Motoori");
+		driver.findElement(By.id("input-firstname")).sendKeys(prop.getProperty("firstName"));
+		driver.findElement(By.id("input-lastname")).sendKeys(prop.getProperty("lastName"));
 		driver.findElement(By.id("input-email")).sendKeys(generateBrandNewEmail());
-		driver.findElement(By.id("input-telephone")).sendKeys("1234567890");
-		driver.findElement(By.id("input-password")).sendKeys("12345");
-		driver.findElement(By.id("input-confirm")).sendKeys("12345");
+		driver.findElement(By.id("input-telephone")).sendKeys(prop.getProperty("telephoneNumber"));
+		driver.findElement(By.id("input-password")).sendKeys(prop.getProperty("validPassword"));
+		driver.findElement(By.id("input-confirm")).sendKeys(prop.getProperty("validPassword"));
 		driver.findElement(By.xpath("//input[@name='newsletter'][@value='1']")).click();
 		driver.findElement(By.name("agree")).click();
 		driver.findElement(By.xpath("//input[@value='Continue']")).click();
@@ -92,12 +94,12 @@ public class Register {
 	@Test(priority=3)
 	public void verifyRegisteringBySubscribingToNewsletter() {
 				
-		driver.findElement(By.id("input-firstname")).sendKeys("Arun");
-		driver.findElement(By.id("input-lastname")).sendKeys("Motoori");
+		driver.findElement(By.id("input-firstname")).sendKeys(prop.getProperty("firstName"));
+		driver.findElement(By.id("input-lastname")).sendKeys(prop.getProperty("lastName"));
 		driver.findElement(By.id("input-email")).sendKeys(generateBrandNewEmail());
-		driver.findElement(By.id("input-telephone")).sendKeys("1234567890");
-		driver.findElement(By.id("input-password")).sendKeys("12345");
-		driver.findElement(By.id("input-confirm")).sendKeys("12345");
+		driver.findElement(By.id("input-telephone")).sendKeys(prop.getProperty("telephoneNumber"));
+		driver.findElement(By.id("input-password")).sendKeys(prop.getProperty("validPassword"));
+		driver.findElement(By.id("input-confirm")).sendKeys(prop.getProperty("validPassword"));
 		driver.findElement(By.xpath("//input[@name='newsletter'][@value='1']")).click();
 		driver.findElement(By.name("agree")).click();
 		driver.findElement(By.xpath("//input[@value='Continue']")).click();
@@ -114,12 +116,12 @@ public class Register {
 	@Test(priority=4)
 	public void verifyRegistringByNotSubscribingToNewsletter() {
 				
-		driver.findElement(By.id("input-firstname")).sendKeys("Arun");
-		driver.findElement(By.id("input-lastname")).sendKeys("Motoori");
+		driver.findElement(By.id("input-firstname")).sendKeys(prop.getProperty("firstName"));
+		driver.findElement(By.id("input-lastname")).sendKeys(prop.getProperty("lastName"));
 		driver.findElement(By.id("input-email")).sendKeys(generateBrandNewEmail());
-		driver.findElement(By.id("input-telephone")).sendKeys("1234567890");
-		driver.findElement(By.id("input-password")).sendKeys("12345");
-		driver.findElement(By.id("input-confirm")).sendKeys("12345");
+		driver.findElement(By.id("input-telephone")).sendKeys(prop.getProperty("telephoneNumber"));
+		driver.findElement(By.id("input-password")).sendKeys(prop.getProperty("validPassword"));
+		driver.findElement(By.id("input-confirm")).sendKeys(prop.getProperty("validPassword"));
 		driver.findElement(By.xpath("//input[@name='newsletter'][@value='0']")).click();
 		driver.findElement(By.name("agree")).click();
 		driver.findElement(By.xpath("//input[@value='Continue']")).click();

@@ -1,37 +1,61 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="2" passed="2" failed="0" skipped="0">
+<testng-results ignored="0" total="4" passed="4" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2025-09-04T21:06:24 IST" name="Default suite" finished-at="2025-09-04T21:06:34 IST" duration-ms="9606">
+  <suite started-at="2025-09-08T21:18:33 IST" name="Default suite" finished-at="2025-09-08T21:19:21 IST" duration-ms="47921">
     <groups>
     </groups>
-    <test started-at="2025-09-04T21:06:24 IST" name="Default test" finished-at="2025-09-04T21:06:34 IST" duration-ms="9606">
-      <class name="tests.Logout">
-        <test-method is-config="true" signature="setup()[pri:0, instance:tests.Logout@55141def]" started-at="2025-09-04T21:06:24 IST" name="setup" finished-at="2025-09-04T21:06:26 IST" duration-ms="2215" status="PASS">
+    <test started-at="2025-09-08T21:18:33 IST" name="Default test" finished-at="2025-09-08T21:19:21 IST" duration-ms="47921">
+      <class name="tests.Register">
+        <test-method is-config="true" signature="setup()[pri:0, instance:tests.Register@14cd1699]" started-at="2025-09-08T21:18:33 IST" name="setup" finished-at="2025-09-08T21:18:39 IST" duration-ms="6544" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method signature="logoutFromMyAccountDropMenu()[pri:1, instance:tests.Logout@55141def]" started-at="2025-09-04T21:06:26 IST" name="logoutFromMyAccountDropMenu" finished-at="2025-09-04T21:06:29 IST" duration-ms="2984" status="PASS">
+        <test-method signature="verifyRegisterAccountUsingMandatoryFields()[pri:1, instance:tests.Register@14cd1699]" started-at="2025-09-08T21:18:39 IST" name="verifyRegisterAccountUsingMandatoryFields" finished-at="2025-09-08T21:18:43 IST" duration-ms="3891" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- logoutFromMyAccountDropMenu -->
-        <test-method is-config="true" signature="teardown()[pri:0, instance:tests.Logout@55141def]" started-at="2025-09-04T21:06:29 IST" name="teardown" finished-at="2025-09-04T21:06:30 IST" duration-ms="344" status="PASS">
+        </test-method> <!-- verifyRegisterAccountUsingMandatoryFields -->
+        <test-method is-config="true" signature="teardown()[pri:0, instance:tests.Register@14cd1699]" started-at="2025-09-08T21:18:43 IST" name="teardown" finished-at="2025-09-08T21:18:44 IST" duration-ms="371" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- teardown -->
-        <test-method is-config="true" signature="setup()[pri:0, instance:tests.Logout@55141def]" started-at="2025-09-04T21:06:30 IST" name="setup" finished-at="2025-09-04T21:06:31 IST" duration-ms="1498" status="PASS">
+        <test-method is-config="true" signature="setup()[pri:0, instance:tests.Register@14cd1699]" started-at="2025-09-08T21:18:44 IST" name="setup" finished-at="2025-09-08T21:19:00 IST" duration-ms="16492" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method signature="logoutFromRightColumnOptions()[pri:2, instance:tests.Logout@55141def]" started-at="2025-09-04T21:06:31 IST" name="logoutFromRightColumnOptions" finished-at="2025-09-04T21:06:34 IST" duration-ms="2231" status="PASS">
+        <test-method signature="verifyRegisteringAnAccountByProvidingAllTheFields()[pri:2, instance:tests.Register@14cd1699]" started-at="2025-09-08T21:19:00 IST" name="verifyRegisteringAnAccountByProvidingAllTheFields" finished-at="2025-09-08T21:19:05 IST" duration-ms="4663" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- logoutFromRightColumnOptions -->
-        <test-method is-config="true" signature="teardown()[pri:0, instance:tests.Logout@55141def]" started-at="2025-09-04T21:06:34 IST" name="teardown" finished-at="2025-09-04T21:06:34 IST" duration-ms="273" status="PASS">
+        </test-method> <!-- verifyRegisteringAnAccountByProvidingAllTheFields -->
+        <test-method is-config="true" signature="teardown()[pri:0, instance:tests.Register@14cd1699]" started-at="2025-09-08T21:19:05 IST" name="teardown" finished-at="2025-09-08T21:19:05 IST" duration-ms="298" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- teardown -->
-      </class> <!-- tests.Logout -->
+        <test-method is-config="true" signature="setup()[pri:0, instance:tests.Register@14cd1699]" started-at="2025-09-08T21:19:05 IST" name="setup" finished-at="2025-09-08T21:19:09 IST" duration-ms="3947" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method signature="verifyRegisteringBySubscribingToNewsletter()[pri:3, instance:tests.Register@14cd1699]" started-at="2025-09-08T21:19:09 IST" name="verifyRegisteringBySubscribingToNewsletter" finished-at="2025-09-08T21:19:13 IST" duration-ms="4012" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyRegisteringBySubscribingToNewsletter -->
+        <test-method is-config="true" signature="teardown()[pri:0, instance:tests.Register@14cd1699]" started-at="2025-09-08T21:19:13 IST" name="teardown" finished-at="2025-09-08T21:19:13 IST" duration-ms="303" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- teardown -->
+        <test-method is-config="true" signature="setup()[pri:0, instance:tests.Register@14cd1699]" started-at="2025-09-08T21:19:13 IST" name="setup" finished-at="2025-09-08T21:19:17 IST" duration-ms="3821" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method signature="verifyRegistringByNotSubscribingToNewsletter()[pri:4, instance:tests.Register@14cd1699]" started-at="2025-09-08T21:19:17 IST" name="verifyRegistringByNotSubscribingToNewsletter" finished-at="2025-09-08T21:19:20 IST" duration-ms="3218" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyRegistringByNotSubscribingToNewsletter -->
+        <test-method is-config="true" signature="teardown()[pri:0, instance:tests.Register@14cd1699]" started-at="2025-09-08T21:19:20 IST" name="teardown" finished-at="2025-09-08T21:19:21 IST" duration-ms="272" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- teardown -->
+      </class> <!-- tests.Register -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>
