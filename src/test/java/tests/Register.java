@@ -3,16 +3,18 @@ package tests;
 import java.time.Duration;
 import java.util.Properties;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
+import pages.AccountPage;
+import pages.AccountSuccessPage;
 import pages.HomePage;
+import pages.NewsletterPage;
+import pages.RegisterPage;
 import utils.CommonUtils;
 
 public class Register {
@@ -45,21 +47,22 @@ public class Register {
 	@Test(priority=1)
 	public void verifyRegisterAccountUsingMandatoryFields() {
 		
-		driver.findElement(By.id("input-firstname")).sendKeys(prop.getProperty("firstName"));
-		driver.findElement(By.id("input-lastname")).sendKeys(prop.getProperty("lastName"));
-		driver.findElement(By.id("input-email")).sendKeys(generateBrandNewEmail());
-		driver.findElement(By.id("input-telephone")).sendKeys(prop.getProperty("telephoneNumber"));
-		driver.findElement(By.id("input-password")).sendKeys(prop.getProperty("validPassword"));
-		driver.findElement(By.id("input-confirm")).sendKeys(prop.getProperty("validPassword"));
-		driver.findElement(By.name("agree")).click();
-		driver.findElement(By.xpath("//input[@value='Continue']")).click();
+		RegisterPage registerPage = new RegisterPage(driver);
+		registerPage.enterFirstName(prop.getProperty("firstName"));
+		registerPage.enterLastName(prop.getProperty("lastName"));
+		registerPage.enterEmail(generateBrandNewEmail());
+		registerPage.enterTelephone(prop.getProperty("telephoneNumber"));
+		registerPage.enterPassword(prop.getProperty("validPassword"));
+		registerPage.enterConfirmPassword(prop.getProperty("validPassword"));
+		registerPage.selectPrivacyPolicy();
+		registerPage.clickOnContinueButton();
 		
-		WebElement logoutOption = driver.findElement(By.xpath("//aside[@id='column-right']//a[text()='Logout']"));
-		Assert.assertTrue(logoutOption.isDisplayed());
+		AccountSuccessPage accountSuccessPage = new AccountSuccessPage(driver);
+		Assert.assertTrue(accountSuccessPage.displayStatusOfLogoutOption());
 	
 		Assert.assertEquals(driver.getTitle(),"Your Account Has Been Created!");
 		
-		driver.findElement(By.linkText("Continue")).click();
+		accountSuccessPage.clickOnContinueButton();
 		
 		Assert.assertEquals(driver.getTitle(),"My Account");
 		
@@ -69,70 +72,80 @@ public class Register {
 	@Test(priority=2)
 	public void verifyRegisteringAnAccountByProvidingAllTheFields() {
 		
-		driver.findElement(By.id("input-firstname")).sendKeys(prop.getProperty("firstName"));
-		driver.findElement(By.id("input-lastname")).sendKeys(prop.getProperty("lastName"));
-		driver.findElement(By.id("input-email")).sendKeys(generateBrandNewEmail());
-		driver.findElement(By.id("input-telephone")).sendKeys(prop.getProperty("telephoneNumber"));
-		driver.findElement(By.id("input-password")).sendKeys(prop.getProperty("validPassword"));
-		driver.findElement(By.id("input-confirm")).sendKeys(prop.getProperty("validPassword"));
-		driver.findElement(By.xpath("//input[@name='newsletter'][@value='1']")).click();
-		driver.findElement(By.name("agree")).click();
-		driver.findElement(By.xpath("//input[@value='Continue']")).click();
+		RegisterPage registerPage = new RegisterPage(driver);
+		registerPage.enterFirstName(prop.getProperty("firstName"));
+		registerPage.enterLastName(prop.getProperty("lastName"));
+		registerPage.enterEmail(generateBrandNewEmail());
+		registerPage.enterTelephone(prop.getProperty("telephoneNumber"));
+		registerPage.enterPassword(prop.getProperty("validPassword"));
+		registerPage.enterConfirmPassword(prop.getProperty("validPassword"));
+		registerPage.selectYesNewsletterOption();
+		registerPage.selectPrivacyPolicy();
+		registerPage.clickOnContinueButton();
 		
-		WebElement logoutOption = driver.findElement(By.xpath("//aside[@id='column-right']//a[text()='Logout']"));
-		Assert.assertTrue(logoutOption.isDisplayed());
+		AccountSuccessPage accountSuccessPage = new AccountSuccessPage(driver);
+		Assert.assertTrue(accountSuccessPage.displayStatusOfLogoutOption());
 	
 		Assert.assertEquals(driver.getTitle(),"Your Account Has Been Created!");
 		
-		driver.findElement(By.linkText("Continue")).click();
+		accountSuccessPage.clickOnContinueButton();
 		
 		Assert.assertEquals(driver.getTitle(),"My Account");
-		
 		
 	}
 	
 	@Test(priority=3)
 	public void verifyRegisteringBySubscribingToNewsletter() {
 				
-		driver.findElement(By.id("input-firstname")).sendKeys(prop.getProperty("firstName"));
-		driver.findElement(By.id("input-lastname")).sendKeys(prop.getProperty("lastName"));
-		driver.findElement(By.id("input-email")).sendKeys(generateBrandNewEmail());
-		driver.findElement(By.id("input-telephone")).sendKeys(prop.getProperty("telephoneNumber"));
-		driver.findElement(By.id("input-password")).sendKeys(prop.getProperty("validPassword"));
-		driver.findElement(By.id("input-confirm")).sendKeys(prop.getProperty("validPassword"));
-		driver.findElement(By.xpath("//input[@name='newsletter'][@value='1']")).click();
-		driver.findElement(By.name("agree")).click();
-		driver.findElement(By.xpath("//input[@value='Continue']")).click();
+		RegisterPage registerPage = new RegisterPage(driver);
+		registerPage.enterFirstName(prop.getProperty("firstName"));
+		registerPage.enterLastName(prop.getProperty("lastName"));
+		registerPage.enterEmail(generateBrandNewEmail());
+		registerPage.enterTelephone(prop.getProperty("telephoneNumber"));
+		registerPage.enterPassword(prop.getProperty("validPassword"));
+		registerPage.enterConfirmPassword(prop.getProperty("validPassword"));
+		registerPage.selectYesNewsletterOption();
+		registerPage.selectPrivacyPolicy();
+		registerPage.clickOnContinueButton();
 		
-		driver.findElement(By.linkText("Continue")).click();
-		driver.findElement(By.linkText("Subscribe / unsubscribe to newsletter")).click();
+		AccountSuccessPage accountSuccessPage = new AccountSuccessPage(driver);
+		accountSuccessPage.clickOnContinueButton();
+		
+		AccountPage accountPage = new AccountPage(driver);
+		accountPage.selectSubscribeOrUnscribeToNewsletterOption();
 		
 		Assert.assertEquals(driver.getTitle(),"Newsletter Subscription");
-		Assert.assertTrue(driver.findElement(By.xpath("//input[@name='newsletter'][@value='1']")).isSelected());
-		
+		NewsletterPage newsletterPage = new NewsletterPage(driver);
+		Assert.assertTrue(newsletterPage.isYesNewletterOptionSelected());
 		
 	}
 	
 	@Test(priority=4)
 	public void verifyRegistringByNotSubscribingToNewsletter() {
 				
-		driver.findElement(By.id("input-firstname")).sendKeys(prop.getProperty("firstName"));
-		driver.findElement(By.id("input-lastname")).sendKeys(prop.getProperty("lastName"));
-		driver.findElement(By.id("input-email")).sendKeys(generateBrandNewEmail());
-		driver.findElement(By.id("input-telephone")).sendKeys(prop.getProperty("telephoneNumber"));
-		driver.findElement(By.id("input-password")).sendKeys(prop.getProperty("validPassword"));
-		driver.findElement(By.id("input-confirm")).sendKeys(prop.getProperty("validPassword"));
-		driver.findElement(By.xpath("//input[@name='newsletter'][@value='0']")).click();
-		driver.findElement(By.name("agree")).click();
-		driver.findElement(By.xpath("//input[@value='Continue']")).click();
 		
-		driver.findElement(By.linkText("Continue")).click();
-		driver.findElement(By.linkText("Subscribe / unsubscribe to newsletter")).click();
+		RegisterPage registerPage = new RegisterPage(driver);
+		registerPage.enterFirstName(prop.getProperty("firstName"));
+		registerPage.enterLastName(prop.getProperty("lastName"));
+		registerPage.enterEmail(generateBrandNewEmail());
+		registerPage.enterTelephone(prop.getProperty("telephoneNumber"));
+		registerPage.enterPassword(prop.getProperty("validPassword"));
+		registerPage.enterConfirmPassword(prop.getProperty("validPassword"));
+		registerPage.selectNoNewsletterOption();
+		registerPage.selectPrivacyPolicy();
+		registerPage.clickOnContinueButton();
 		
+		AccountSuccessPage accountSuccessPage = new AccountSuccessPage(driver);
+		accountSuccessPage.clickOnContinueButton();
+		
+		AccountPage accountPage = new AccountPage(driver);
+		accountPage.selectSubscribeOrUnscribeToNewsletterOption();
+				
 		Assert.assertEquals(driver.getTitle(),"Newsletter Subscription");
-		Assert.assertTrue(driver.findElement(By.xpath("//input[@name='newsletter'][@value='0']")).isSelected());
-	
 		
+		NewsletterPage newsletterPage = new NewsletterPage(driver);
+		Assert.assertTrue(newsletterPage.isNoNewsletterOptionSelected());
+	
 	}
 	
 	

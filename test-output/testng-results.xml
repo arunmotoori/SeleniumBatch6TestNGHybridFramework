@@ -1,57 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="4" passed="4" failed="0" skipped="0">
+<testng-results ignored="3" total="4" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2025-09-08T21:18:33 IST" name="Default suite" finished-at="2025-09-08T21:19:21 IST" duration-ms="47921">
+  <suite started-at="2025-09-10T20:59:53 IST" name="Default suite" finished-at="2025-09-10T21:00:00 IST" duration-ms="6716">
     <groups>
     </groups>
-    <test started-at="2025-09-08T21:18:33 IST" name="Default test" finished-at="2025-09-08T21:19:21 IST" duration-ms="47921">
+    <test started-at="2025-09-10T20:59:53 IST" name="Default test" finished-at="2025-09-10T21:00:00 IST" duration-ms="6716">
       <class name="tests.Register">
-        <test-method is-config="true" signature="setup()[pri:0, instance:tests.Register@14cd1699]" started-at="2025-09-08T21:18:33 IST" name="setup" finished-at="2025-09-08T21:18:39 IST" duration-ms="6544" status="PASS">
+        <test-method is-config="true" signature="setup()[pri:0, instance:tests.Register@7b98f307]" started-at="2025-09-10T20:59:53 IST" name="setup" finished-at="2025-09-10T20:59:57 IST" duration-ms="3329" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method signature="verifyRegisterAccountUsingMandatoryFields()[pri:1, instance:tests.Register@14cd1699]" started-at="2025-09-08T21:18:39 IST" name="verifyRegisterAccountUsingMandatoryFields" finished-at="2025-09-08T21:18:43 IST" duration-ms="3891" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- verifyRegisterAccountUsingMandatoryFields -->
-        <test-method is-config="true" signature="teardown()[pri:0, instance:tests.Register@14cd1699]" started-at="2025-09-08T21:18:43 IST" name="teardown" finished-at="2025-09-08T21:18:44 IST" duration-ms="371" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- teardown -->
-        <test-method is-config="true" signature="setup()[pri:0, instance:tests.Register@14cd1699]" started-at="2025-09-08T21:18:44 IST" name="setup" finished-at="2025-09-08T21:19:00 IST" duration-ms="16492" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setup -->
-        <test-method signature="verifyRegisteringAnAccountByProvidingAllTheFields()[pri:2, instance:tests.Register@14cd1699]" started-at="2025-09-08T21:19:00 IST" name="verifyRegisteringAnAccountByProvidingAllTheFields" finished-at="2025-09-08T21:19:05 IST" duration-ms="4663" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- verifyRegisteringAnAccountByProvidingAllTheFields -->
-        <test-method is-config="true" signature="teardown()[pri:0, instance:tests.Register@14cd1699]" started-at="2025-09-08T21:19:05 IST" name="teardown" finished-at="2025-09-08T21:19:05 IST" duration-ms="298" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- teardown -->
-        <test-method is-config="true" signature="setup()[pri:0, instance:tests.Register@14cd1699]" started-at="2025-09-08T21:19:05 IST" name="setup" finished-at="2025-09-08T21:19:09 IST" duration-ms="3947" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setup -->
-        <test-method signature="verifyRegisteringBySubscribingToNewsletter()[pri:3, instance:tests.Register@14cd1699]" started-at="2025-09-08T21:19:09 IST" name="verifyRegisteringBySubscribingToNewsletter" finished-at="2025-09-08T21:19:13 IST" duration-ms="4012" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- verifyRegisteringBySubscribingToNewsletter -->
-        <test-method is-config="true" signature="teardown()[pri:0, instance:tests.Register@14cd1699]" started-at="2025-09-08T21:19:13 IST" name="teardown" finished-at="2025-09-08T21:19:13 IST" duration-ms="303" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- teardown -->
-        <test-method is-config="true" signature="setup()[pri:0, instance:tests.Register@14cd1699]" started-at="2025-09-08T21:19:13 IST" name="setup" finished-at="2025-09-08T21:19:17 IST" duration-ms="3821" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setup -->
-        <test-method signature="verifyRegistringByNotSubscribingToNewsletter()[pri:4, instance:tests.Register@14cd1699]" started-at="2025-09-08T21:19:17 IST" name="verifyRegistringByNotSubscribingToNewsletter" finished-at="2025-09-08T21:19:20 IST" duration-ms="3218" status="PASS">
+        <test-method signature="verifyRegistringByNotSubscribingToNewsletter()[pri:4, instance:tests.Register@7b98f307]" started-at="2025-09-10T20:59:57 IST" name="verifyRegistringByNotSubscribingToNewsletter" finished-at="2025-09-10T21:00:00 IST" duration-ms="3019" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- verifyRegistringByNotSubscribingToNewsletter -->
-        <test-method is-config="true" signature="teardown()[pri:0, instance:tests.Register@14cd1699]" started-at="2025-09-08T21:19:20 IST" name="teardown" finished-at="2025-09-08T21:19:21 IST" duration-ms="272" status="PASS">
+        <test-method is-config="true" signature="teardown()[pri:0, instance:tests.Register@7b98f307]" started-at="2025-09-10T21:00:00 IST" name="teardown" finished-at="2025-09-10T21:00:00 IST" duration-ms="311" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- teardown -->
