@@ -21,6 +21,11 @@ public class Register {
 	
 	WebDriver driver;
 	Properties prop;
+	HomePage homePage;
+	RegisterPage registerPage;
+	AccountSuccessPage accountSuccessPage;
+	AccountPage accountPage;
+	NewsletterPage newsletterPage;
 	
 	@AfterMethod
 	public void teardown() {
@@ -38,16 +43,14 @@ public class Register {
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
 		driver.get(prop.getProperty("url"));
 		
-		HomePage homePage = new HomePage(driver);
-		homePage.clickOnMyAccountDropMenu();
-		homePage.selectRegisterOption();
+		homePage = new HomePage(driver);
+		registerPage = homePage.navigateToRegisterPage();
 		
 	}
 	
 	@Test(priority=1)
 	public void verifyRegisterAccountUsingMandatoryFields() {
-		
-		RegisterPage registerPage = new RegisterPage(driver);
+	
 		registerPage.enterFirstName(prop.getProperty("firstName"));
 		registerPage.enterLastName(prop.getProperty("lastName"));
 		registerPage.enterEmail(generateBrandNewEmail());
@@ -55,9 +58,8 @@ public class Register {
 		registerPage.enterPassword(prop.getProperty("validPassword"));
 		registerPage.enterConfirmPassword(prop.getProperty("validPassword"));
 		registerPage.selectPrivacyPolicy();
-		registerPage.clickOnContinueButton();
+		accountSuccessPage = registerPage.clickOnContinueButton();
 		
-		AccountSuccessPage accountSuccessPage = new AccountSuccessPage(driver);
 		Assert.assertTrue(accountSuccessPage.displayStatusOfLogoutOption());
 	
 		Assert.assertEquals(driver.getTitle(),"Your Account Has Been Created!");
@@ -72,7 +74,6 @@ public class Register {
 	@Test(priority=2)
 	public void verifyRegisteringAnAccountByProvidingAllTheFields() {
 		
-		RegisterPage registerPage = new RegisterPage(driver);
 		registerPage.enterFirstName(prop.getProperty("firstName"));
 		registerPage.enterLastName(prop.getProperty("lastName"));
 		registerPage.enterEmail(generateBrandNewEmail());
@@ -81,9 +82,8 @@ public class Register {
 		registerPage.enterConfirmPassword(prop.getProperty("validPassword"));
 		registerPage.selectYesNewsletterOption();
 		registerPage.selectPrivacyPolicy();
-		registerPage.clickOnContinueButton();
+		accountSuccessPage = registerPage.clickOnContinueButton();
 		
-		AccountSuccessPage accountSuccessPage = new AccountSuccessPage(driver);
 		Assert.assertTrue(accountSuccessPage.displayStatusOfLogoutOption());
 	
 		Assert.assertEquals(driver.getTitle(),"Your Account Has Been Created!");
@@ -96,8 +96,7 @@ public class Register {
 	
 	@Test(priority=3)
 	public void verifyRegisteringBySubscribingToNewsletter() {
-				
-		RegisterPage registerPage = new RegisterPage(driver);
+			
 		registerPage.enterFirstName(prop.getProperty("firstName"));
 		registerPage.enterLastName(prop.getProperty("lastName"));
 		registerPage.enterEmail(generateBrandNewEmail());
@@ -106,16 +105,13 @@ public class Register {
 		registerPage.enterConfirmPassword(prop.getProperty("validPassword"));
 		registerPage.selectYesNewsletterOption();
 		registerPage.selectPrivacyPolicy();
-		registerPage.clickOnContinueButton();
+		accountSuccessPage = registerPage.clickOnContinueButton();
 		
-		AccountSuccessPage accountSuccessPage = new AccountSuccessPage(driver);
-		accountSuccessPage.clickOnContinueButton();
-		
-		AccountPage accountPage = new AccountPage(driver);
-		accountPage.selectSubscribeOrUnscribeToNewsletterOption();
+		accountPage = accountSuccessPage.clickOnContinueButton();
+	
+		newsletterPage = accountPage.selectSubscribeOrUnscribeToNewsletterOption();
 		
 		Assert.assertEquals(driver.getTitle(),"Newsletter Subscription");
-		NewsletterPage newsletterPage = new NewsletterPage(driver);
 		Assert.assertTrue(newsletterPage.isYesNewletterOptionSelected());
 		
 	}
@@ -123,8 +119,6 @@ public class Register {
 	@Test(priority=4)
 	public void verifyRegistringByNotSubscribingToNewsletter() {
 				
-		
-		RegisterPage registerPage = new RegisterPage(driver);
 		registerPage.enterFirstName(prop.getProperty("firstName"));
 		registerPage.enterLastName(prop.getProperty("lastName"));
 		registerPage.enterEmail(generateBrandNewEmail());
@@ -133,17 +127,11 @@ public class Register {
 		registerPage.enterConfirmPassword(prop.getProperty("validPassword"));
 		registerPage.selectNoNewsletterOption();
 		registerPage.selectPrivacyPolicy();
-		registerPage.clickOnContinueButton();
-		
-		AccountSuccessPage accountSuccessPage = new AccountSuccessPage(driver);
-		accountSuccessPage.clickOnContinueButton();
-		
-		AccountPage accountPage = new AccountPage(driver);
-		accountPage.selectSubscribeOrUnscribeToNewsletterOption();
-				
+		accountSuccessPage = registerPage.clickOnContinueButton();
+	
+		accountPage = accountSuccessPage.clickOnContinueButton();
+		newsletterPage = accountPage.selectSubscribeOrUnscribeToNewsletterOption();
 		Assert.assertEquals(driver.getTitle(),"Newsletter Subscription");
-		
-		NewsletterPage newsletterPage = new NewsletterPage(driver);
 		Assert.assertTrue(newsletterPage.isNoNewsletterOptionSelected());
 	
 	}

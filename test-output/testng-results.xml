@@ -1,25 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="3" total="4" passed="1" failed="0" skipped="0">
+<testng-results ignored="0" total="2" passed="2" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2025-09-10T20:59:53 IST" name="Default suite" finished-at="2025-09-10T21:00:00 IST" duration-ms="6716">
+  <suite started-at="2025-09-11T21:06:53 IST" name="Default suite" finished-at="2025-09-11T21:07:03 IST" duration-ms="10855">
     <groups>
     </groups>
-    <test started-at="2025-09-10T20:59:53 IST" name="Default test" finished-at="2025-09-10T21:00:00 IST" duration-ms="6716">
-      <class name="tests.Register">
-        <test-method is-config="true" signature="setup()[pri:0, instance:tests.Register@7b98f307]" started-at="2025-09-10T20:59:53 IST" name="setup" finished-at="2025-09-10T20:59:57 IST" duration-ms="3329" status="PASS">
+    <test started-at="2025-09-11T21:06:53 IST" name="Default test" finished-at="2025-09-11T21:07:03 IST" duration-ms="10855">
+      <class name="tests.Logout">
+        <test-method is-config="true" signature="setup()[pri:0, instance:tests.Logout@55141def]" started-at="2025-09-11T21:06:53 IST" name="setup" finished-at="2025-09-11T21:06:56 IST" duration-ms="3334" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method signature="verifyRegistringByNotSubscribingToNewsletter()[pri:4, instance:tests.Register@7b98f307]" started-at="2025-09-10T20:59:57 IST" name="verifyRegistringByNotSubscribingToNewsletter" finished-at="2025-09-10T21:00:00 IST" duration-ms="3019" status="PASS">
+        <test-method signature="logoutFromMyAccountDropMenu()[pri:1, instance:tests.Logout@55141def]" started-at="2025-09-11T21:06:56 IST" name="logoutFromMyAccountDropMenu" finished-at="2025-09-11T21:06:58 IST" duration-ms="2308" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- verifyRegistringByNotSubscribingToNewsletter -->
-        <test-method is-config="true" signature="teardown()[pri:0, instance:tests.Register@7b98f307]" started-at="2025-09-10T21:00:00 IST" name="teardown" finished-at="2025-09-10T21:00:00 IST" duration-ms="311" status="PASS">
+        </test-method> <!-- logoutFromMyAccountDropMenu -->
+        <test-method is-config="true" signature="teardown()[pri:0, instance:tests.Logout@55141def]" started-at="2025-09-11T21:06:58 IST" name="teardown" finished-at="2025-09-11T21:06:59 IST" duration-ms="275" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- teardown -->
-      </class> <!-- tests.Register -->
+        <test-method is-config="true" signature="setup()[pri:0, instance:tests.Logout@55141def]" started-at="2025-09-11T21:06:59 IST" name="setup" finished-at="2025-09-11T21:07:01 IST" duration-ms="2016" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method signature="logoutFromRightColumnOptions()[pri:2, instance:tests.Logout@55141def]" started-at="2025-09-11T21:07:01 IST" name="logoutFromRightColumnOptions" finished-at="2025-09-11T21:07:03 IST" duration-ms="2574" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- logoutFromRightColumnOptions -->
+        <test-method is-config="true" signature="teardown()[pri:0, instance:tests.Logout@55141def]" started-at="2025-09-11T21:07:03 IST" name="teardown" finished-at="2025-09-11T21:07:03 IST" duration-ms="268" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- teardown -->
+      </class> <!-- tests.Logout -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

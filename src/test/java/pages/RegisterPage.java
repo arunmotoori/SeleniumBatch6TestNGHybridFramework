@@ -74,8 +74,9 @@ public class RegisterPage {
 		privacyPolicyField.click();
 	}
 	
-	public void clickOnContinueButton() {
+	public AccountSuccessPage clickOnContinueButton() {
 		continueButton.click();
+		return new AccountSuccessPage(driver);
 	}
 	
 	public void selectYesNewsletterOption() {

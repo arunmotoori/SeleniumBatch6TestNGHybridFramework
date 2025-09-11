@@ -17,8 +17,36 @@ public class AccountPage {
 	@FindBy(linkText="Subscribe / unsubscribe to newsletter")
 	WebElement subscribeOrUnsubscribeToNewsletter;
 	
-	public void selectSubscribeOrUnscribeToNewsletterOption() {
+	@FindBy(xpath="//*[@id='column-right']//a[text()='Logout']")
+	WebElement logoutOption;
+	
+	@FindBy(xpath="//span[text()='My Account']")
+	WebElement myAccountDropMenu;
+	
+	@FindBy(linkText="Logout")
+	WebElement MenuLogoutOption;
+	
+	public AccountLogoutPage selectLogoutOption() {
+		MenuLogoutOption.click();
+		return new AccountLogoutPage(driver);
+	}
+	
+	public void clickOnMyAccountDropMenu() {
+		myAccountDropMenu.click();
+	}
+	
+	public NewsletterPage selectSubscribeOrUnscribeToNewsletterOption() {
 		subscribeOrUnsubscribeToNewsletter.click();
+		return new NewsletterPage(driver);
+	}
+	
+	public boolean isUserLoggedIn() {
+		return logoutOption.isDisplayed();
+	}
+	
+	public AccountLogoutPage selectRightColumnLogoutOption() {
+		logoutOption.click();
+		return new AccountLogoutPage(driver);
 	}
 
 }
