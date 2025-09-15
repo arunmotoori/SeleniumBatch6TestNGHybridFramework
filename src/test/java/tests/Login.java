@@ -1,37 +1,22 @@
 package tests;
 
-import java.time.Duration;
-import java.util.Properties;
-
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-import pages.AccountPage;
+import base.Base;
 import pages.HomePage;
-import pages.LoginPage;
-import utils.CommonUtils;
 
-public class Login {
+public class Login extends Base {
 	
 	WebDriver driver;
-	Properties prop;
-	HomePage homePage;
-	LoginPage loginPage;
-	AccountPage accountPage;
-	
+
 	@BeforeMethod
 	public void setup() {
 		
-		prop = CommonUtils.loadPropertiesFile();
-		driver = new ChromeDriver();
-		driver.manage().window().maximize();
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
-		driver.get(prop.getProperty("url"));
-		
+		driver = openApplicationURLInTheBrowser();
 		homePage = new HomePage(driver);
 		loginPage = homePage.navigateToLoginPage();
 	
@@ -40,7 +25,7 @@ public class Login {
 	@AfterMethod
 	public void teardown() {
 		
-		driver.quit();
+		closeBrowser(driver);
 		
 	}
 	
