@@ -5,12 +5,16 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import utils.ElementUtils;
+
 public class HomePage {
 	
 	WebDriver driver;
+	ElementUtils elementUtils;
 	
 	public HomePage(WebDriver driver) {
 		this.driver = driver;
+		elementUtils = new ElementUtils(driver);
 		PageFactory.initElements(driver,this);
 	}
 	
@@ -30,17 +34,20 @@ public class HomePage {
 	WebElement searchButton;
 	
 	public RegisterPage navigateToRegisterPage() {
+		
 		clickOnMyAccountDropMenu();
 		return selectRegisterOption();
+		
 	}
 	
 	public void clickOnMyAccountDropMenu() {
 		
-		myAccountDropMenu.click();
+		elementUtils.clickOnElement(myAccountDropMenu);
 		
 	}
 	
 	public LoginPage navigateToLoginPage() {
+		
 		clickOnMyAccountDropMenu();
 		return selectLoginOption();
 	}
@@ -48,23 +55,28 @@ public class HomePage {
 	
 	public RegisterPage selectRegisterOption() {
 		
-		registerOption.click();
+		elementUtils.clickOnElement(registerOption);
 		return new RegisterPage(driver);
 		
 	}
 	
 	public LoginPage selectLoginOption() {
-		loginOption.click();
+		
+		elementUtils.clickOnElement(loginOption);
 		return new LoginPage(driver);
 	}
 	
 	public void enterProductIntoSearchBoxField(String productText) {
-		searchBoxField.sendKeys(productText);
+		
+		elementUtils.enterTextIntoTheElement(searchBoxField, productText);
+		
 	}
 	
 	public SearchPage clickOnSearchButton() {
-		searchButton.click();
+		
+		elementUtils.clickOnElement(searchButton);
 		return new SearchPage(driver);
+		
 	}
 	
 	

@@ -5,12 +5,16 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import utils.ElementUtils;
+
 public class SearchPage {
 	
 	WebDriver driver;
+	ElementUtils elementUtils;
 	
 	public SearchPage(WebDriver driver) {
 		this.driver = driver;
+		elementUtils = new ElementUtils(driver);
 		PageFactory.initElements(driver,this);
 	}
 	
@@ -21,11 +25,11 @@ public class SearchPage {
 	WebElement noProductMessage;
 	
 	public boolean isProductDisplayedInSearchResults() {
-		return existingProductOne.isDisplayed();
+		return elementUtils.isElementDisplayed(existingProductOne);
 	}
 	
 	public String getMessage() {
-		return noProductMessage.getText();
+		return elementUtils.getTextFromElement(noProductMessage);
 	}
 
 }

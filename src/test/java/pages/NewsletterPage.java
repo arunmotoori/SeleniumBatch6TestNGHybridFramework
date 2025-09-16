@@ -5,12 +5,16 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import utils.ElementUtils;
+
 public class NewsletterPage {
 	
 	WebDriver driver;
+	ElementUtils elementUtils;
 	
 	public NewsletterPage(WebDriver driver) {
 		this.driver = driver;
+		elementUtils = new ElementUtils(driver);
 		PageFactory.initElements(driver,this);
 	}
 	
@@ -21,11 +25,11 @@ public class NewsletterPage {
 	WebElement noNewsletterOption;
 	
 	public boolean isYesNewletterOptionSelected() {
-		return yesNewsletterOption.isSelected();
+		return elementUtils.isElementInSelectedState(yesNewsletterOption);
 	}
 	
 	public boolean isNoNewsletterOptionSelected() {
-		return noNewsletterOption.isSelected();
+		return elementUtils.isElementInSelectedState(noNewsletterOption);
 	}
 
 }

@@ -5,12 +5,16 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import utils.ElementUtils;
+
 public class AccountSuccessPage {
 	
 	WebDriver driver;
+	ElementUtils elementUtils;
 	
 	public AccountSuccessPage(WebDriver driver) {
 		this.driver = driver;
+		elementUtils = new ElementUtils(driver);
 		PageFactory.initElements(driver,this);
 	}
 	
@@ -21,11 +25,11 @@ public class AccountSuccessPage {
 	WebElement continueButton;
 	
 	public boolean displayStatusOfLogoutOption() {
-		return logoutOption.isDisplayed();
+		return elementUtils.isElementDisplayed(logoutOption);
 	}
 	
 	public AccountPage clickOnContinueButton() {
-		continueButton.click();
+		elementUtils.clickOnElement(continueButton);
 		return new AccountPage(driver);
 	}
 

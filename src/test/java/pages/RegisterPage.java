@@ -5,13 +5,17 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import utils.ElementUtils;
+
 public class RegisterPage {
 	
 	WebDriver driver;
+	ElementUtils elementUtils;
 	
 	public RegisterPage(WebDriver driver) {
 		
 		this.driver = driver;
+		elementUtils = new ElementUtils(driver);
 		PageFactory.initElements(driver,this);
 		
 	}
@@ -47,44 +51,44 @@ public class RegisterPage {
 	WebElement noNewsletterOption;
 	
 	public void enterFirstName(String firstNameText) {
-		firstNameField.sendKeys(firstNameText);
+		elementUtils.enterTextIntoTheElement(firstNameField, firstNameText);
 	}
 	
 	public void enterLastName(String lastNameText) {
-		lastNameField.sendKeys(lastNameText);
+		elementUtils.enterTextIntoTheElement(lastNameField, lastNameText);
 	}
 	
 	public void enterEmail(String emailText) {
-		emailField.sendKeys(emailText);
+		elementUtils.enterTextIntoTheElement(emailField, emailText);
 	}
 	
 	public void enterTelephone(String telephoneText) {
-		telephoneField.sendKeys(telephoneText);
+		elementUtils.enterTextIntoTheElement(telephoneField, telephoneText);
 	}
 	
 	public void enterPassword(String passwordText) {
-		passwordField.sendKeys(passwordText);
+		elementUtils.enterTextIntoTheElement(passwordField, passwordText);
 	}
 	
 	public void enterConfirmPassword(String passwordText) {
-		passwordConfirmField.sendKeys(passwordText);
+		elementUtils.enterTextIntoTheElement(passwordConfirmField, passwordText);
 	}
 	
 	public void selectPrivacyPolicy() {
-		privacyPolicyField.click();
+		elementUtils.clickOnElement(privacyPolicyField);
 	}
 	
 	public AccountSuccessPage clickOnContinueButton() {
-		continueButton.click();
+		elementUtils.clickOnElement(continueButton);
 		return new AccountSuccessPage(driver);
 	}
 	
 	public void selectYesNewsletterOption() {
-		yesNewsletterOption.click();
+		elementUtils.clickOnElement(yesNewsletterOption);
 	}
 	
 	public void selectNoNewsletterOption() {
-		noNewsletterOption.click();	
+		elementUtils.clickOnElement(noNewsletterOption);
 	}
 
 }

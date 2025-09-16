@@ -5,12 +5,16 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import utils.ElementUtils;
+
 public class AccountPage {
 	
 	WebDriver driver;
+	ElementUtils elementUtils;
 	
 	public AccountPage(WebDriver driver) {
 		this.driver = driver;
+		elementUtils = new ElementUtils(driver);
 		PageFactory.initElements(driver,this);
 	}
 	
@@ -27,25 +31,25 @@ public class AccountPage {
 	WebElement MenuLogoutOption;
 	
 	public AccountLogoutPage selectLogoutOption() {
-		MenuLogoutOption.click();
+		elementUtils.clickOnElement(MenuLogoutOption);
 		return new AccountLogoutPage(driver);
 	}
 	
 	public void clickOnMyAccountDropMenu() {
-		myAccountDropMenu.click();
+		elementUtils.clickOnElement(myAccountDropMenu);
 	}
 	
 	public NewsletterPage selectSubscribeOrUnscribeToNewsletterOption() {
-		subscribeOrUnsubscribeToNewsletter.click();
+		elementUtils.clickOnElement(subscribeOrUnsubscribeToNewsletter);
 		return new NewsletterPage(driver);
 	}
 	
 	public boolean isUserLoggedIn() {
-		return logoutOption.isDisplayed();
+		return elementUtils.isElementDisplayed(logoutOption);
 	}
 	
 	public AccountLogoutPage selectRightColumnLogoutOption() {
-		logoutOption.click();
+		elementUtils.clickOnElement(logoutOption);
 		return new AccountLogoutPage(driver);
 	}
 
