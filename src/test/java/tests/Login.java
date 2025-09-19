@@ -8,6 +8,7 @@ import org.testng.annotations.Test;
 
 import base.Base;
 import pages.HomePage;
+import utils.CommonUtils;
 
 public class Login extends Base {
 	
@@ -46,7 +47,7 @@ public class Login extends Base {
 	@Test(priority=2)
 	public void verifyLoginWithInvalidCredentials()  {
 		
-		loginPage.enterEmailAddress(generateBrandNewEmail());
+		loginPage.enterEmailAddress(CommonUtils.generateBrandNewEmail());
 		loginPage.enterPassword(prop.getProperty("invalidPassword"));
 		loginPage.clickOnLoginButton();
 		
@@ -57,7 +58,7 @@ public class Login extends Base {
 	@Test(priority=3)
 	public void verifyLoginWithInvalidEmailAndValidPassword() {
 		
-		loginPage.enterEmailAddress(generateBrandNewEmail());
+		loginPage.enterEmailAddress(CommonUtils.generateBrandNewEmail());
 		loginPage.enterPassword(prop.getProperty("validPassword"));
 		loginPage.clickOnLoginButton();
 		
@@ -84,10 +85,5 @@ public class Login extends Base {
 		
 	}
 	
-	public static String generateBrandNewEmail() {
-		
-		return "arunmotoori"+System.currentTimeMillis()+"@gmail.com";
-		
-	}
-
+	
 }

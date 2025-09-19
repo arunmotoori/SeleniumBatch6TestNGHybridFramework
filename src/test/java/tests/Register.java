@@ -8,6 +8,7 @@ import org.testng.annotations.Test;
 
 import base.Base;
 import pages.HomePage;
+import utils.CommonUtils;
 
 public class Register extends Base {
 	
@@ -34,7 +35,7 @@ public class Register extends Base {
 	
 		registerPage.enterFirstName(prop.getProperty("firstName"));
 		registerPage.enterLastName(prop.getProperty("lastName"));
-		registerPage.enterEmail(generateBrandNewEmail());
+		registerPage.enterEmail(CommonUtils.generateBrandNewEmail());
 		registerPage.enterTelephone(prop.getProperty("telephoneNumber"));
 		registerPage.enterPassword(prop.getProperty("validPassword"));
 		registerPage.enterConfirmPassword(prop.getProperty("validPassword"));
@@ -57,7 +58,7 @@ public class Register extends Base {
 		
 		registerPage.enterFirstName(prop.getProperty("firstName"));
 		registerPage.enterLastName(prop.getProperty("lastName"));
-		registerPage.enterEmail(generateBrandNewEmail());
+		registerPage.enterEmail(CommonUtils.generateBrandNewEmail());
 		registerPage.enterTelephone(prop.getProperty("telephoneNumber"));
 		registerPage.enterPassword(prop.getProperty("validPassword"));
 		registerPage.enterConfirmPassword(prop.getProperty("validPassword"));
@@ -80,7 +81,7 @@ public class Register extends Base {
 			
 		registerPage.enterFirstName(prop.getProperty("firstName"));
 		registerPage.enterLastName(prop.getProperty("lastName"));
-		registerPage.enterEmail(generateBrandNewEmail());
+		registerPage.enterEmail(CommonUtils.generateBrandNewEmail());
 		registerPage.enterTelephone(prop.getProperty("telephoneNumber"));
 		registerPage.enterPassword(prop.getProperty("validPassword"));
 		registerPage.enterConfirmPassword(prop.getProperty("validPassword"));
@@ -102,7 +103,7 @@ public class Register extends Base {
 				
 		registerPage.enterFirstName(prop.getProperty("firstName"));
 		registerPage.enterLastName(prop.getProperty("lastName"));
-		registerPage.enterEmail(generateBrandNewEmail());
+		registerPage.enterEmail(CommonUtils.generateBrandNewEmail());
 		registerPage.enterTelephone(prop.getProperty("telephoneNumber"));
 		registerPage.enterPassword(prop.getProperty("validPassword"));
 		registerPage.enterConfirmPassword(prop.getProperty("validPassword"));
@@ -117,11 +118,4 @@ public class Register extends Base {
 	
 	}
 	
-	
-	public static String generateBrandNewEmail() {
-		
-		return "arunmotoori"+System.currentTimeMillis()+"@gmail.com";
-		
-	}
-
 }
