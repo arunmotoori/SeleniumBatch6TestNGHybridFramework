@@ -5,6 +5,11 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Properties;
 
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.io.FileHandler;
+
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 import com.aventstack.extentreports.reporter.configuration.ExtentSparkReporterConfig;
@@ -50,6 +55,18 @@ public class CommonUtils {
 		
 		return extentReports;
 	
+	}
+	
+	public static String takeScreenshot(WebDriver driver,String testName) {
+		TakesScreenshot ts = (TakesScreenshot)driver;
+		File srcScreenshot = ts.getScreenshotAs(OutputType.FILE);
+		String screenshotPath = System.getProperty("user.dir")+"\\Screenshots\\"+testName+".png";
+		try {
+			FileHandler.copy(srcScreenshot,new File(screenshotPath));
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return screenshotPath;
 	}
 
 }

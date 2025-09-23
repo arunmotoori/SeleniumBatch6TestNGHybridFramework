@@ -1,5 +1,10 @@
 package listeners;
 
+import java.awt.Desktop;
+import java.io.File;
+import java.io.IOException;
+
+import org.openqa.selenium.WebDriver;
 import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
@@ -11,9 +16,10 @@ import com.aventstack.extentreports.Status;
 import utils.CommonUtils;
 
 public class MyListeners implements ITestListener {
-	
+
 	ExtentReports extentReports;
 	ExtentTest extentTest;
+	WebDriver driver;
 	
 	@Override
 	public void onStart(ITestContext context) {
@@ -33,6 +39,14 @@ public class MyListeners implements ITestListener {
 	@Override
 	public void onTestFailure(ITestResult result) {
 		extentTest.log(Status.FAIL,result.getName()+" got failed");
+		try {
+			driver = (WebDriver)result.getTestClass().getRealClass().getDeclaredField("driver").get(result.getInstance());
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+		String screenshotPath = CommonUtils.takeScreenshot(driver, result.getName());
+		extentTest.addScreenCaptureFromPath(screenshotPath);
+		extentTest.log(Status.INFO,result.getThrowable());
 	}
 
 	@Override
@@ -44,6 +58,12 @@ public class MyListeners implements ITestListener {
 	@Override
 	public void onFinish(ITestContext context) {
 		extentReports.flush();
+		File extentReportFile = new File(System.getProperty("user.dir")+"\\Reports\\extentReport.html");
+		try {
+			Desktop.getDesktop().browse(extentReportFile.toURI());
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 	
 }

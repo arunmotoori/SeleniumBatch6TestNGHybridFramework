@@ -12,7 +12,7 @@ import utils.CommonUtils;
 
 public class Register extends Base {
 	
-	WebDriver driver;
+	public WebDriver driver;
 
 	@AfterMethod
 	public void teardown() {

@@ -12,7 +12,7 @@ import utils.CommonUtils;
 
 public class Login extends Base {
 	
-	WebDriver driver;
+	public WebDriver driver;
 
 	@BeforeMethod
 	public void setup() {
@@ -40,7 +40,7 @@ public class Login extends Base {
 		accountPage = loginPage.clickOnLoginButton();
 		
 		Assert.assertTrue(accountPage.isUserLoggedIn());
-		Assert.assertEquals(driver.getTitle(),"My Account");
+		Assert.assertEquals(driver.getTitle(),"My Account XYZ");
 	
 	}
 	

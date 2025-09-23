@@ -11,7 +11,7 @@ import pages.HomePage;
 
 public class Logout extends Base {
 	
-	WebDriver driver;
+	public WebDriver driver;
 
 	@BeforeMethod
 	public void setup() {
