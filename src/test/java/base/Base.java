@@ -18,6 +18,7 @@ import pages.NewsletterPage;
 import pages.RegisterPage;
 import pages.SearchPage;
 import utils.CommonUtils;
+import utils.MyXLSReader;
 
 public class Base {
 	
@@ -31,13 +32,15 @@ public class Base {
 	public LoginPage loginPage;
 	public AccountLogoutPage accountLogoutPage;
 	public SearchPage searchPage;
+	public MyXLSReader myXLSReader;
 	
 	public WebDriver openApplicationURLInTheBrowser() {
 		
 		prop = CommonUtils.loadPropertiesFile();
-		
+		//myXLSReader = new MyXLSReader("\\src\\test\\resources\\ProjectData.xlsx");
 		
 		String browserName = prop.getProperty("browserName");
+		//String browserName = myXLSReader.getCellData("DataSheet",2,11);
 		
 		if(browserName.equals("chrome")) {
 			driver = new ChromeDriver();
@@ -52,6 +55,7 @@ public class Base {
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
 		driver.get(prop.getProperty("url"));
+		//driver.get(myXLSReader.getCellData("DataSheet",2,1));
 		
 		return driver;
 		

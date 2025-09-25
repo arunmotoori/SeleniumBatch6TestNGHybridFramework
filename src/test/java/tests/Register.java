@@ -34,6 +34,7 @@ public class Register extends Base {
 	public void verifyRegisterAccountUsingMandatoryFields() {
 	
 		registerPage.enterFirstName(prop.getProperty("firstName"));
+		//registerPage.enterFirstName(myXLSReader.getCellData("DataSheet",2,2));
 		registerPage.enterLastName(prop.getProperty("lastName"));
 		registerPage.enterEmail(CommonUtils.generateBrandNewEmail());
 		registerPage.enterTelephone(prop.getProperty("telephoneNumber"));
