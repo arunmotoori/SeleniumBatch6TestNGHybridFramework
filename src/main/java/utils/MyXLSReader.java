@@ -41,7 +41,7 @@ public class MyXLSReader {
 	   try {
 		   
 			fis = new FileInputStream(System.getProperty("user.dir")+filepath);
-			System.out.println(System.getProperty("user.dir")+filepath);
+			
 			
 			if(fileExtension.equals(".xlsx")){
 				
@@ -151,12 +151,12 @@ public class MyXLSReader {
 	
 	// returns the data from a cell
 	public String getCellData(String sheetname,int colNum,int rowNum){
+		
 		try{
 		if(rowNum <=0)
 			return "";
 		
 		int sheetIndex = workbook.getSheetIndex(sheetname);
-		System.out.println(sheetIndex);
 		
 		if(sheetIndex==-1)
 			return "";

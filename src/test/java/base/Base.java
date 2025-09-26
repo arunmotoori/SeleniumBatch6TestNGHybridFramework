@@ -37,7 +37,7 @@ public class Base {
 	public WebDriver openApplicationURLInTheBrowser() {
 		
 		prop = CommonUtils.loadPropertiesFile();
-		//myXLSReader = new MyXLSReader("\\src\\test\\resources\\ProjectData.xlsx");
+		myXLSReader = new MyXLSReader("\\src\\test\\resources\\ProjectData.xlsx");
 		
 		String browserName = prop.getProperty("browserName");
 		//String browserName = myXLSReader.getCellData("DataSheet",2,11);
